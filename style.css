@@ -1,59 +1,183 @@
-/* General Reset */
+
+/* =====================================
+   GENERAL RESET AND BASE STYLES
+===================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     width: 100%;
     font-family: 'Roboto', sans-serif;
-
+    color: #6B3E3E;
+    background-color: #FFFFFF;
+    line-height: 1.6;
 }
 
-/*Header*/
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+/* =====================================
+   HEADER SECTION
+===================================== */
+
 header {
-    background-color:#E8B7B7;
+    background-color: #E8B7B7;
     width: 100%;
-    padding: 10px 39px;
+    padding: 15px;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 15px;
 }
 
-/*Logo*/
-.logo { width: 150px;
-     height: auto; 
+/* LOGO */
 
- }
+.logo {
+    width: 120px;
+    height: auto;
+}
 
- /*Navigation*/
+/* NAVIGATION */
+
 nav {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
+    width: 100%;
 }
-
 
 nav ul {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
-    gap: 25px;
+    gap: 15px;
 }
 
 nav a {
     color: #FFFFFF;
     text-decoration: none;
-    font-weight:none;
+    font-weight: normal;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
     color: #6B3E3E;
 }
 
+
+
+/* DARK MODE BUTTON */
+
+#themeToggle {
+    background-color: #6B3E3E;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#themeToggle:hover {
+    background-color: #C49A6C;
+}
+
+
+/* DARK MODE THEME */
+
+body.dark-mode {
+    background-color: #211B25;
+    color: #FFFFFF;
+}
+
+.dark-mode header {
+    background-color: #302735;
+}
+
+.dark-mode nav ul li a {
+    color: #FFFFFF;
+}
+
+.dark-mode #categories,
+.dark-mode #about,
+.dark-mode #beauty-tips,
+.dark-mode #contact-form,
+.dark-mode footer {
+    background-color: #211B25;
+    color: #FFFFFF;
+}
+
+.dark-mode .category-card,
+.dark-mode .tip-card,
+.dark-mode #contactForm {
+    background-color: #382E3D;
+    color: #FFFFFF;
+}
+
+.dark-mode .category-card h3,
+.dark-mode .tip-card h3,
+.dark-mode .category-heading h2,
+.dark-mode .tips-heading h2,
+.dark-mode .contact-heading h2 {
+    color: #F2C6D0;
+}
+
+.dark-mode .category-card p,
+.dark-mode .tip-card p,
+.dark-mode .category-heading p,
+.dark-mode .tips-heading p,
+.dark-mode .contact-heading p {
+    color: #FFFFFF;
+}
+
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode select {
+    background-color: #302735;
+    color: #FFFFFF;
+    border: 1px solid #C49A6C;
+}
+
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+    color: #D6C9D5;
+}
+
+.dark-mode footer a,
+.dark-mode footer p {
+    color: #FFFFFF;
+}
+
+.dark-mode #themeToggle {
+    background-color: #C49A6C;
+    color: #211B25;
+}
+
 /* SHOPPING CART */
+
 .shopping-cart {
     display: flex;
     align-items: center;
@@ -61,92 +185,101 @@ nav a:hover {
     color: #6B3E3E;
 }
 
-/* MOBILE RESPONSIVENESS */
-@media screen and (max-width: 600px) {
+.cart-icon {
+    font-size: 22px;
+}
 
-    header {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
-    }
-
-    .logo {
-        width: 120px;
-    }
-
-    nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
-
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-    }
+.cart-count {
+    background-color: #FFFFFF;
+    color: #6B3E3E;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 
-/* HERO SECTION */
+/* =====================================
+   HERO SECTION
+===================================== */
+
 #hero {
     position: relative;
     width: 100%;
-    min-height: 600px;
+    min-height: 550px;
+
     display: flex;
     align-items: center;
-    padding: 60px;
+
+    padding: 30px 20px;
     overflow: hidden;
 }
 
 /* HERO IMAGE */
+
 .hero-image {
     position: absolute;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
     object-position: center 35%;
+
     opacity: 0.8;
     z-index: 0;
 }
 
-/* HERO TEXT */
+/* HERO CONTENT */
+
 .hero-content {
     position: relative;
     z-index: 1;
+
+    width: 100%;
     max-width: 600px;
+
     color: #6B3E3E;
 }
 
 .hero-content h1 {
-    font-size: 48px;
+    font-size: 32px;
+    line-height: 1.2;
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.6;
     margin-bottom: 25px;
 }
 
 /* HERO BUTTONS */
+
 .hero-buttons {
+    position: relative;
+    z-index: 2;
+
     display: flex;
-    gap: 15px;
+    align-items: center;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .btn {
     display: inline-block;
-    padding: 14px 25px;
+    padding: 12px 16px;
+
     background-color: #6B3E3E;
     color: #FFFFFF;
+
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
@@ -154,41 +287,14 @@ nav a:hover {
     color: #FFFFFF;
 }
 
-/* MOBILE RESPONSIVENESS */
-@media screen and (max-width: 600px) {
 
-    #hero {
-        min-height: 550px;
-        padding: 30px 20px;
-    }
-
-    .hero-image {
-        object-position: center;
-    }
-
-    .hero-content h1 {
-        font-size: 32px;
-    }
-
-    .hero-content p {
-        font-size: 16px;
-    }
-
-    .hero-buttons {
-        gap: 10px;
-    }
-
-    .btn {
-        padding: 12px 16px;
-    }
-}
-
-
-/* PRODUCT CATEGORIES SECTION */
+/* =====================================
+   PRODUCT CATEGORIES SECTION
+===================================== */
 
 #categories {
     background-color: #F7E9E3;
-    padding: 60px 40px;
+    padding: 40px 15px;
     text-align: center;
 }
 
@@ -196,14 +302,14 @@ nav a:hover {
 
 .category-heading h2 {
     color: #6B3E3E;
-    font-size: 36px;
+    font-size: 28px;
     margin-bottom: 15px;
 }
 
 .category-heading p {
     color: #6B3E3E;
     font-size: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     line-height: 1.6;
 }
 
@@ -211,8 +317,9 @@ nav a:hover {
 
 .category-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -223,8 +330,11 @@ nav a:hover {
     background-color: #FFFFFF;
     padding: 20px;
     border-radius: 12px;
+
     box-shadow: 0 4px 12px rgba(107, 62, 62, 0.12);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
 }
 
 .category-card:hover {
@@ -261,75 +371,35 @@ nav a:hover {
 
 /* ADD TO CART BUTTON */
 
-.add-to-cart {
+.add-to-cart-btn {
     background-color: #E8B7B7;
     color: #6B3E3E;
+
     border: none;
     padding: 12px 25px;
     border-radius: 5px;
+
     font-size: 15px;
     font-weight: bold;
     cursor: pointer;
+
     transition: background-color 0.3s ease;
 }
 
-.add-to-cart:hover {
+.add-to-cart-btn:hover {
     background-color: #6B3E3E;
     color: #FFFFFF;
 }
 
-/* TABLET RESPONSIVENESS */
 
-@media screen and (max-width: 900px) {
-
-    .category-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-/* MOBILE RESPONSIVENESS */
-
-@media screen and (max-width: 600px) {
-
-    #categories {
-        padding: 40px 15px;
-    }
-
-    .category-heading h2 {
-        font-size: 28px;
-    }
-
-    .category-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .category-card img {
-        height: 250px;
-    }
-
-}
-
-/* ABOUT SECTION */
+/* =====================================
+   ABOUT SECTION
+===================================== */
 
 #about {
-    background-color: #Ffff;
-    padding: 60px 40px;
+    background-color: #FFFFFF;
+    padding: 50px 20px;
     text-align: center;
-}
-
-#about h2 {
-    color: #6B3E3E;
-    font-size: 36px;
-    margin-bottom: 15px;
-}
-
-#about p {
-    color: #6B3E3E;
-    font-size: 16px;
-    margin-bottom: 40px;
-    line-height: 1.6;
 }
 
 #about .about-content {
@@ -337,17 +407,32 @@ nav a:hover {
     margin: 0 auto;
 }
 
+#about h2 {
+    color: #6B3E3E;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+#about p {
+    color: #6B3E3E;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
 #about .btn {
     display: inline-block;
+
     background-color: #E8B7B7;
     color: #6B3E3E;
-    border: none;
+
     padding: 12px 25px;
     border-radius: 5px;
+
     font-size: 15px;
     font-weight: bold;
     text-decoration: none;
-    cursor: pointer;
+
     transition: background-color 0.3s ease;
 }
 
@@ -357,89 +442,240 @@ nav a:hover {
 }
 
 
+/* =====================================
+   BEAUTY TIPS API SECTION
+===================================== */
 
-/* NEWSLETTER SECTION */
-
-#newsletter {
-    background-color: #E8B7B7;
-    padding: 70px 20px;
+#beauty-tips {
+    background-color: #F7E9E3;
+    padding: 50px 20px;
     text-align: center;
 }
 
-.newsletter-content {
-    max-width: 750px;
+/* BEAUTY TIPS HEADING */
+
+.tips-heading h2 {
+    color: #6B3E3E;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.tips-heading p {
+    color: #6B3E3E;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* SEARCH AND FILTER */
+
+.tips-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    max-width: 550px;
+    margin: 0 auto 30px;
+    text-align: left;
+}
+
+.tips-controls label {
+    color: #6B3E3E;
+    font-weight: bold;
+}
+
+.tips-controls input,
+.tips-controls select {
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #C49A6C;
+    border-radius: 5px;
+
+    background-color: #FFFFFF;
+    color: #6B3E3E;
+    outline: none;
+}
+
+.tips-controls input:focus,
+.tips-controls select:focus {
+    border: 2px solid #6B3E3E;
+}
+
+/* API RESULTS CONTAINER */
+
+#tipsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.newsletter-content h2 {
-    color: #6B3E3E;
-    font-size: 36px;
-    margin-bottom: 15px;
+/* DYNAMIC BEAUTY TIP CARDS */
+
+.tip-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 12px rgba(107, 62, 62, 0.12);
+    text-align: left;
 }
 
-.newsletter-content p {
+.tip-card h3 {
+    color: #6B3E3E;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.tip-card p {
+    color: #6B3E3E;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* LOADING AND ERROR MESSAGES */
+
+#loadingMessage,
+#apiError {
+    margin: 20px 0;
+    font-size: 15px;
+}
+
+#apiError {
+    color: #B00020;
+}
+
+
+/* =====================================
+   CONTACT FORM SECTION
+===================================== */
+
+#contact-form {
+    background-color: #FFFFFF;
+    padding: 50px 20px;
+}
+
+.contact-heading {
+    max-width: 700px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.contact-heading h2 {
+    color: #6B3E3E;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.contact-heading p {
     color: #6B3E3E;
     font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
-.newsletter-form {
+/* CONTACT FORM */
+
+#contactForm {
+    max-width: 650px;
+    margin: 0 auto;
+
+    background-color: #F7E9E3;
+    padding: 25px;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(107, 62, 62, 0.12);
+}
+
+.form-group {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    max-width: 550px;
-    margin: 0 auto 20px;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
-.newsletter-form input {
-    flex: 1;
-    min-width: 0;
-    padding: 15px;
-    border: 1px solid #6B3E3E;
-    border-radius: 5px;
-    outline: none;
-    font-size: 15px;
-}
-
-.newsletter-form input:focus {
-    border: 2px solid #C49A6C;
-}
-
-.newsletter-form button {
-    background-color: #6B3E3E;
-    color: #FFFFFF;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.newsletter-form button:hover {
-    background-color: #C49A6C;
-}
-
-.newsletter-content small {
+.form-group label {
     color: #6B3E3E;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+
+    border: 1px solid #C49A6C;
+    border-radius: 5px;
+
+    background-color: #FFFFFF;
+    color: #6B3E3E;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 2px solid #6B3E3E;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* FORM ERROR MESSAGES */
+
+.error-message {
+    color: #B00020;
     font-size: 13px;
 }
 
+/* CONTACT SUBMIT BUTTON */
 
-/* FOOTER SECTION */
+#contactForm button {
+    width: 100%;
+    padding: 14px;
+
+    background-color: #6B3E3E;
+    color: #FFFFFF;
+
+    border: none;
+    border-radius: 5px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+#contactForm button:hover {
+    background-color: #C49A6C;
+}
+
+#formFeedback {
+    margin-top: 15px;
+    text-align: center;
+    color: #6B3E3E;
+}
+
+
+/* =====================================
+   FOOTER SECTION
+===================================== */
 
 #contact {
     background-color: #6B3E3E;
     color: #FFFFFF;
-    padding: 60px 40px 20px;
+    padding: 45px 20px 20px;
 }
+
+/* FOOTER CONTAINER */
 
 .footer-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     gap: 30px;
+
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -476,6 +712,7 @@ nav a:hover {
     color: #FFFFFF;
     text-decoration: none;
     font-size: 14px;
+
     transition: color 0.3s ease;
 }
 
@@ -497,6 +734,7 @@ nav a:hover {
     width: 25px;
     height: 25px;
     object-fit: contain;
+
     transition: transform 0.3s ease;
 }
 
@@ -524,6 +762,7 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 15px;
 }
@@ -539,58 +778,195 @@ nav a:hover {
 }
 
 
-/* TABLET RESPONSIVENESS */
+/* =====================================
+   TABLET RESPONSIVENESS
+===================================== */
 
-@media (max-width: 900px) {
+@media screen and (min-width: 600px) {
+
+    /* HEADER */
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 25px;
+    }
+
+    .logo {
+        width: 130px;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: flex-end;
+        width: auto;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    /* HERO */
+
+    #hero {
+        min-height: 600px;
+        padding: 50px 35px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content p {
+        font-size: 18px;
+    }
+
+    /* CATEGORIES */
+
+    #categories {
+        padding: 60px 30px;
+    }
+
+    .category-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* ABOUT */
+
+    #about {
+        padding: 60px 35px;
+    }
+
+    /* BEAUTY TIPS */
+
+    #tipsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter-form {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .newsletter-form input {
+        flex: 1;
+    }
+
+    .newsletter-form button {
+        width: auto;
+    }
+
+    /* FOOTER */
+
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 
-/* MOBILE RESPONSIVENESS */
+/* =====================================
+   DESKTOP RESPONSIVENESS
+===================================== */
 
-@media (max-width: 600px) {
+@media screen and (min-width: 900px) {
+
+    /* HEADER */
+
+    header {
+        padding: 10px 39px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    nav ul {
+        gap: 25px;
+    }
+
+    /* HERO */
+
+    #hero {
+        min-height: 600px;
+        padding: 60px;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    /* CATEGORIES */
+
+    .category-container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    /* ABOUT */
+
+    #about h2 {
+        font-size: 36px;
+    }
+
+    /* BEAUTY TIPS */
+
+    #tipsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* NEWSLETTER */
 
     #newsletter {
-        padding: 50px 20px;
+        padding: 70px 20px;
     }
 
     .newsletter-content h2 {
+        font-size: 36px;
+    }
+
+    /* FOOTER */
+
+    .footer-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+/* =====================================
+   ACCESSIBILITY AND SMALL SCREEN FIXES
+===================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #C49A6C;
+    outline-offset: 3px;
+}
+
+@media (max-width: 350px) {
+
+    .hero-content h1 {
         font-size: 28px;
     }
 
-    .newsletter-content p {
-        font-size: 14px;
-    }
-
-    .newsletter-form {
+    .hero-buttons {
         flex-direction: column;
+        align-items: flex-start;
     }
 
-    .newsletter-form input,
-    .newsletter-form button {
-        width: 100%;
+    .btn {
+        padding: 11px 13px;
     }
 
-    #contact {
-        padding: 45px 20px 20px;
+    #contactForm {
+        padding: 18px;
     }
 
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-
-    .footer-bottom {
-        margin-top: 25px;
-    }
-
-    .legal-links {
-        flex-wrap: wrap;
-    }
 }
